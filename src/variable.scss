@@ -1,0 +1,14 @@
+$backgroundColor: #fafafa;
+$themeColor     : #007bff;
+$white          : #fff;
+$black          : #000;
+$green          : #00c853;
+$red            : #f44336;
+
+$headerHeight: 56px;
+
+@mixin box-shadow($property) {
+    box-shadow     : $property;
+    -moz-box-shadow: $property;
+    box-shadow     : $property;
+}

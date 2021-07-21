@@ -1,1 +1,34 @@
-<p>login works!</p>
+<div class="login-main-wrapper">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 offset-md-3 col-12">
+              <div class="login-wrapper d-flex justify-content-center align-items-center">
+                  <mat-card class="my-card">
+                      <h3 class="text-center">Login into your account</h3>
+                      <div class="form-wrapper" novalidate>
+                          <form [formGroup]="loginForm" (submit)="login()" class="form">
+                              <mat-form-field class="form-element">
+                                  <input matInput placeholder="Email" formControlName="email">
+                                  <mat-error *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">
+                                      Please enter email.
+                                  </mat-error>
+                              </mat-form-field>
+
+                              <mat-form-field class="form-element">
+                                  <input matInput placeholder="Password" type="password" formControlName="password">
+                                  <mat-error *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">
+                                      Please enter password.
+                                  </mat-error>
+                              </mat-form-field>
+
+                              <div class="form-element">
+                                  <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!loginForm.valid">Login</button>
+                              </div>
+                          </form>
+                      </div>
+                  </mat-card>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
