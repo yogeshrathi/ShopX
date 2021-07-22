@@ -1,0 +1,41 @@
+<div class="login-main-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-12">
+        <div class="login-wrapper d-flex justify-content-center align-items-center">
+          <mat-card class="my-card">
+            <h3 class="text-center">Register</h3>
+            <div class="form-wrapper" novalidate>
+              <form [formGroup]="registerForm" (submit)="registerUser()" class="form">
+                <mat-form-field class="form-element">
+                  <input matInput placeholder="Name" formControlName="name">
+                  <mat-error *ngIf="!registerForm.controls['name'].valid && registerForm.controls['name'].touched">
+                    Please enter name.
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-element">
+                  <input matInput placeholder="Email" formControlName="email">
+                  <mat-error *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched">
+                    Please enter email.
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-element">
+                  <input matInput placeholder="Password" type="password" formControlName="password">
+                  <mat-error *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">
+                    Please enter password.
+                  </mat-error>
+                </mat-form-field>
+
+                <div class="form-element">
+                  <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!registerForm.valid">Register</button>
+                </div>
+              </form>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
