@@ -1,0 +1,33 @@
+<mat-toolbar class="navbar-header-wrapper" color="primary">
+    <mat-toolbar-row>
+        <div class="header-title-wrapper">
+            <span class="title">ShopX</span>
+        </div>
+
+        <div class="profile-wrapper">
+            <div class="name d-none d-sm-inline-block">
+                Welcome Yogesh
+            </div>
+            <button mat-button [matMenuTriggerFor]="menu">
+                <span class="material-icons">account_circle</span>
+            </button>
+            <mat-menu #menu="matMenu" class="profile-menu-wrapper">
+                <button (click)="handleNavigation('/home/profile')" mat-menu-item>
+                    My Profile
+                </button>
+                <button (click)="handleNavigation('/home/change-password')" mat-menu-item>
+                    My Orders
+                </button>
+                <button (click)="handleNavigation('/home/change-password')" mat-menu-item>
+                    My wishlist
+                </button>
+                <button (click)="handleNavigation('/home/change-password')" mat-menu-item>
+                    Change Password
+                </button>
+                <button (click)="logout()" mat-menu-item>
+                    Logout
+                </button>
+            </mat-menu>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
