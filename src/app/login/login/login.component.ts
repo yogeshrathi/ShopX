@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/core/services/storageService';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
 
     constructor(
         private loginService: LoginService,
-        private router: Router
+        private router: Router,
+        private storageService: StorageService
     ) { }
 
     ngOnInit(): void {
@@ -33,8 +35,11 @@ export class LoginComponent implements OnInit {
             this.loginService.signIn(payload).subscribe((res) => {
                 // Todo
                 // Show Toastr []
-                // save token []
-                console.log('User Loggedin --->', res);
+                // save token [x]
+                // save encrypted Token
+                // console.log('User Loggedin --->', res);
+                this.storageService.sessionToken = res.token;
+                this.storageService.set('user', JSON.stringify(res));
                 this.router.navigate(['/store']);
             });
         } else {

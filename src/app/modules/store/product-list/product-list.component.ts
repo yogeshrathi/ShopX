@@ -23,5 +23,7 @@ export class ProductListComponent implements OnInit {
         });
     }
 
-
+    addProduct(product: any): void {
+        console.log(product);
+    }
 }
