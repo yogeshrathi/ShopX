@@ -23,6 +23,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { BannerCardComponent } from './components/banner-card/banner-card.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 let sharedModules = [
@@ -52,11 +56,18 @@ let sharedModules = [
   MatProgressSpinnerModule,
 ];
 
+const sharedComponent = [
+  ProductCardComponent,
+  BannerCardComponent,
+  HeaderComponent,
+  SidebarComponent
+];
+
 @NgModule({
-  declarations: [],
+  declarations: [...sharedComponent],
   imports: [
     CommonModule,
     sharedModules
-  ], exports: [sharedModules]
+  ], exports: [...sharedModules, ...sharedComponent]
 })
 export class SharedModule { }
