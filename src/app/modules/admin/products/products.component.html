@@ -1,0 +1,87 @@
+<div id="content">
+  <div class="content-section">
+    <div class="container-fluid">
+      <!--Search-->
+      <div class="form-section">
+        <div style="text-align: left;">
+          <h2>{{title}}</h2>
+        </div>
+        <div class="search-row d-flex justify-content-end align-items-start">
+          <div class="search-block">
+            <div class="search-columns">
+              <form>
+                <div class="form-group">
+                  <input type="text" [(ngModel)]="searchedKeyword" name="search" class="form-control" id=""
+                    placeholder="Search">
+                  <button type="submit" class="search-button">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <button type="button" class="blue-border-button" data-toggle="modal" data-target="#add-artist">Add
+            Product</button>
+        </div>
+
+        <!--Table-->
+        <div class="list-section">
+          <mat-table class="table table-list" [dataSource]="dataSource" matSort [hidden]="products.length === 0">
+            <ng-container matColumnDef="product_name">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Product Name</mat-header-cell>
+              <mat-cell *matCellDef="let product">{{product.product_name}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="price">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+              <mat-cell class="description-cell" *matCellDef="let product">{{product.price}}</mat-cell>
+
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+              <mat-cell class="duration-cell" *matCellDef="let product">{{product.description}}
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="edit">
+              <mat-header-cell *matHeaderCellDef></mat-header-cell>
+              <mat-cell class="duration-cell edit text-center" *matCellDef="let product">
+                <a href="javascript: void(0)"><i class="fas fa-edit"></i></a>
+              </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+              <mat-header-cell *matHeaderCellDef></mat-header-cell>
+              <mat-cell class="duration-cell delete text-center" *matCellDef="let product">
+                <a href="javascript: void(0)"><i class="fas fa-trash"></i></a>
+              </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="['product_name', 'price', 'description', 'edit', 'delete']">
+            </mat-header-row>
+
+            <mat-row *matRowDef="let row; columns: ['product_name', 'price', 'description', 'edit', 'delete']">
+            </mat-row>
+
+          </mat-table>
+
+          <mat-paginator *ngIf="products.length > 0" fxFlex="100%" [length]="totalRecords" [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChanged($event)">
+          </mat-paginator>
+
+          <div *ngIf="products.length == 0">
+            No products found.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="add-modal modal fade" id="add-artist" tabindex="-1" aria-labelledby="add-artisttitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <app-add-product></app-add-product>
+  </div>
+</div>

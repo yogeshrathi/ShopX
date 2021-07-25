@@ -1,0 +1,102 @@
+.modal app-add-artist {width:100%; }
+.mat-table { background: transparent; }
+.mat-table .mat-header-row { border-bottom: none;}
+.mat-table .mat-header-row .mat-header-cell { font-weight: 500; border: none;
+    padding: 20px 25px; font-size: 13px; line-height: 20px;
+}
+.mat-table .mat-row .mat-cell { border-bottom: none; padding: 20px 25px;
+    font-size: 13px; line-height: 20px;
+}
+.mat-paginator { background: transparent;}
+.mat-table .mat-row .mat-cell.delete a, .mat-table .mat-row .mat-cell.edit a { margin: 0 auto;}
+.add-modal .modal-dialog .modalWidth { width: 100%;}
+
+.mat-badge-content,
+.mat-h1,
+.mat-headline,
+.mat-typography h1,
+.mat-h2,
+.mat-title,
+.mat-typography h2,
+.mat-h3,
+.mat-subheading-2,
+.mat-typography h3,
+.mat-h4,
+.mat-subheading-1,
+.mat-typography h4,
+.mat-h5,
+.mat-typography h5,
+.mat-h6,
+.mat-typography h6,
+.mat-body-strong,
+.mat-body-2,
+.mat-body,
+.mat-body-1,
+.mat-typography,
+.mat-small,
+.mat-caption,
+.mat-display-4,
+.mat-typography .mat-display-4,
+.mat-display-3,
+.mat-typography .mat-display-3,
+.mat-display-2,
+.mat-typography .mat-display-2,
+.mat-display-1,
+.mat-typography .mat-display-1,
+.mat-bottom-sheet-container,
+.mat-button,
+.mat-raised-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button,
+.mat-fab,
+.mat-mini-fab,
+.mat-button-toggle,
+.mat-card,
+.mat-checkbox,
+.mat-table,
+.mat-calendar,
+.mat-dialog-title,
+.mat-expansion-panel-header,
+.mat-expansion-panel-content,
+.mat-form-field,
+.mat-menu-item,
+.mat-paginator,
+.mat-paginator-page-size .mat-select-trigger,
+.mat-radio-button,
+.mat-select,
+.mat-slide-toggle-content,
+.mat-slider-thumb-label-text,
+.mat-stepper-vertical,
+.mat-stepper-horizontal,
+.mat-tab-group,
+.mat-tab-label,
+.mat-tab-link,
+.mat-toolbar,
+.mat-toolbar h1,
+.mat-toolbar h2,
+.mat-toolbar h3,
+.mat-toolbar h4,
+.mat-toolbar h5,
+.mat-toolbar h6,
+.mat-tooltip,
+.mat-list-item,
+.mat-list-option,
+.mat-list-base .mat-subheader,
+.mat-list-base[dense] .mat-subheader,
+.mat-option,
+.mat-optgroup-label,
+.mat-simple-snackbar,
+.mat-tree {
+	font-family: 'Poppins', sans-serif;
+}
+.mat-pseudo-checkbox { border: 1px solid !important; border-radius: 0 !important;}
+.mat-pseudo-checkbox-checked:after { top: 3px !important; left: 2px !important; }
+.mat-select-arrow { margin: 12px 4px !important;}
+.mat-select-value { line-height: 29px !important;}
+.form-control:focus { box-shadow: none; outline: none; border-color: #079BE5 !important; }
+.input-groups .select2-container.select2-container--focus .select2-selection--single { border-color: #079BE5 !important; }
+.centerAlign { justify-content: center; }
+.dashboard-section .right-columns.fullScreen { flex: 0 0 100%; max-width: 100%;}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {z-index: 99999 !important;}
