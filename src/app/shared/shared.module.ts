@@ -27,6 +27,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { BannerCardComponent } from './components/banner-card/banner-card.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { AddProductComponent } from './components/modals/add-product/add-product.component';
 
 
 let sharedModules = [
@@ -64,10 +65,10 @@ const sharedComponent = [
 ];
 
 @NgModule({
-  declarations: [...sharedComponent],
+  declarations: [...sharedComponent, AddProductComponent],
   imports: [
     CommonModule,
     sharedModules
-  ], exports: [...sharedModules, ...sharedComponent]
+  ], exports: [...sharedModules, ...sharedComponent, AddProductComponent]
 })
 export class SharedModule { }
