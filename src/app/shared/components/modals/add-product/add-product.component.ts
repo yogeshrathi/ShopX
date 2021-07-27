@@ -38,7 +38,6 @@ export class AddProductComponent implements OnInit {
         imageUrl: this.productForm.value.file,
         isAvailable: true
       };
-      debugger;
       this.apiService.setProduct(payload).subscribe((res) => {
         alert(res);
         this.router.navigate(['admin/products']);
@@ -53,6 +52,4 @@ export class AddProductComponent implements OnInit {
     this.closeModal.nativeElement.click();
     this.productForm.reset();
   }
-
-
 }
