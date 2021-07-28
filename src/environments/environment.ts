@@ -1,6 +1,6 @@
 
 export const environment = {
   production: false,
-  baseHref: 'http://localhost:8080/api/'
+  baseHref: 'https://salty-ridge-28243.herokuapp.com/api/'
 };
 
