@@ -3,10 +3,10 @@
     <div class="container-fluid">
       <!--Search-->
       <div class="form-section">
-        <div style="text-align: left;">
+        <div style="text-align: left; display: inline-block;">
           <h2>{{title}}</h2>
         </div>
-        <div class="search-row d-flex justify-content-end align-items-start">
+        <div class="search-row d-flex justify-content-end align-items-start" style="display: inline-block;">
           <div class="search-block">
             <div class="search-columns">
               <form>
@@ -35,7 +35,6 @@
             <ng-container matColumnDef="price">
               <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
               <mat-cell class="description-cell" *matCellDef="let product">{{product.price}}</mat-cell>
-
             </ng-container>
 
             <ng-container matColumnDef="description">
@@ -47,14 +46,14 @@
             <ng-container matColumnDef="edit">
               <mat-header-cell *matHeaderCellDef></mat-header-cell>
               <mat-cell class="duration-cell edit text-center" *matCellDef="let product">
-                <a href="javascript: void(0)"><i class="fas fa-edit"></i></a>
+                <a href="javascript: void(0)" style="margin: auto;"><i class="fas fa-edit"></i></a>
               </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="delete">
               <mat-header-cell *matHeaderCellDef></mat-header-cell>
               <mat-cell class="duration-cell delete text-center" *matCellDef="let product">
-                <a href="javascript: void(0)"><i class="fas fa-trash"></i></a>
+                <a href="javascript: void(0)" style="margin: auto;"><i class="fas fa-trash"></i></a>
               </mat-cell>
             </ng-container>
 
@@ -82,6 +81,6 @@
 <div class="add-modal modal fade" id="add-artist" tabindex="-1" aria-labelledby="add-artisttitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <app-add-product></app-add-product>
+    <app-add-product (isAddProduct) = getProducts()></app-add-product>
   </div>
 </div>

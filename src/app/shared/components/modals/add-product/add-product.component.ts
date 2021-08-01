@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -11,6 +11,7 @@ import { ApiService } from 'src/app/core/services/api.service';
 export class AddProductComponent implements OnInit {
 
   @ViewChild('closeModal') closeModal!: any;
+  @Output() isAddProduct = new EventEmitter<string>();
 
   productForm = new FormGroup({
     productName: new FormControl('', [Validators.required]),
@@ -19,15 +20,14 @@ export class AddProductComponent implements OnInit {
     description: new FormControl('', [Validators.required]),
   });
 
-  constructor(private apiService: ApiService,
-    private router: Router) { }
+  constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   addProduct(): void {
     if (this.productForm.invalid) {
-      alert("Please fill form properly");
+      alert('Please fill form properly');
       return;
     }
     else {
@@ -39,16 +39,15 @@ export class AddProductComponent implements OnInit {
         isAvailable: true
       };
       this.apiService.setProduct(payload).subscribe((res) => {
-        alert(res);
-        this.router.navigate(['admin/products']);
+        this.isAddProduct.emit('true');
       });
 
       console.log(this.productForm.value);
-      this.closeLicenseMdl();
+      this.closeProductMdl();
     }
   }
 
-  closeLicenseMdl(): void {
+  closeProductMdl(): void {
     this.closeModal.nativeElement.click();
     this.productForm.reset();
   }

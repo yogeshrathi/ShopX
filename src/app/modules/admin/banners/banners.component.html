@@ -1,0 +1,87 @@
+<div id="content">
+    <div class="content-section">
+      <div class="container-fluid">
+        <!--Search-->
+        <div class="form-section">
+          <div style="text-align: left; display: inline-block;">
+            <h2>{{title}}</h2>
+          </div>
+          <div class="search-row d-flex justify-content-end align-items-start" style="display: inline-block;">
+            <div class="search-block">
+              <div class="search-columns">
+                <form>
+                  <div class="form-group">
+                    <input type="text" [(ngModel)]="searchedKeyword" name="search" class="form-control" id=""
+                      placeholder="Search">
+                    <button type="submit" class="search-button">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <button type="button" class="blue-border-button" data-toggle="modal" data-target="#add-artist">Add
+              Banner</button>
+          </div>
+  
+          <!--Table-->
+          <div class="list-section">
+            <mat-table class="table table-list" [dataSource]="dataSource" matSort [hidden]="banners.length === 0">
+              <ng-container matColumnDef="banner_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Banner Name</mat-header-cell>
+                <mat-cell *matCellDef="let banner">{{banner.banner_name}}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="imageUrl">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+                <mat-cell class="description-cell" *matCellDef="let banner">{{banner.imageUrl}}</mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+                <mat-cell class="duration-cell" *matCellDef="let banner">{{banner.description}}
+                </mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="edit">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell class="duration-cell edit text-center" *matCellDef="let banner">
+                  <a href="javascript: void(0)" style="margin: auto;"><i class="fas fa-edit"></i></a>
+                </mat-cell>
+              </ng-container>
+  
+              <ng-container matColumnDef="delete">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell class="duration-cell delete text-center" *matCellDef="let banner">
+                  <a href="javascript: void(0)" style="margin: auto;"><i class="fas fa-trash"></i></a>
+                </mat-cell>
+              </ng-container>
+  
+              <mat-header-row *matHeaderRowDef="['banner_name', 'imageUrl', 'description', 'edit', 'delete']">
+              </mat-header-row>
+  
+              <mat-row *matRowDef="let row; columns: ['banner_name', 'imageUrl', 'description', 'edit', 'delete']">
+              </mat-row>
+  
+            </mat-table>
+  
+            <mat-paginator *ngIf="banners.length > 0" fxFlex="100%" [length]="totalRecords" [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChanged($event)">
+            </mat-paginator>
+  
+            <div *ngIf="banners.length == 0">
+              No banners found.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="add-modal modal fade" id="add-artist" tabindex="-1" aria-labelledby="add-artisttitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <app-add-banner (isAddBanner) = getBanners()></app-add-banner>
+    </div>
+  </div>
+  

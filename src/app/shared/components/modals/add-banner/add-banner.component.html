@@ -1,0 +1,38 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="add-modaltitle">Add Banner</h5>
+    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+      <img src="assets/images/popup-close-btn.svg">
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="bannerForm" name="bannerForm">
+      <div class="form-group">
+        <label>Banner Name</label>
+        <div class="input-groups">
+          <input type="text" class="form-control pr-3" id="" formControlName="bannerName" required="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Attachment </label>
+        <div class="input-groups">
+          <input type="text" class="form-control pr-3" id="" formControlName="file" required="">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <div class="input-groups">
+          <input type="text" class="form-control pr-3" id="" formControlName="description" required="">
+        </div>
+      </div>
+
+      <div class="form-group text-center mb-0">
+        <button type="submit" class="green-button submit-btn" (click)="addBanner()">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<a href="javascript: void(0)" data-dismiss="modal" #closeModal data-target="#add-modal" class="display-none"></a>

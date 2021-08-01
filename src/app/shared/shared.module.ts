@@ -28,6 +28,8 @@ import { BannerCardComponent } from './components/banner-card/banner-card.compon
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AddProductComponent } from './components/modals/add-product/add-product.component';
+import { AddBannerComponent } from './components/modals/add-banner/add-banner.component';
+import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 
 
 let sharedModules = [
@@ -61,14 +63,17 @@ const sharedComponent = [
   ProductCardComponent,
   BannerCardComponent,
   HeaderComponent,
-  SidebarComponent
+  SidebarComponent,
+  AddBannerComponent,
+  AdminSidebarComponent,
+  AddProductComponent
 ];
 
 @NgModule({
-  declarations: [...sharedComponent, AddProductComponent],
+  declarations: [...sharedComponent],
   imports: [
     CommonModule,
     sharedModules
-  ], exports: [...sharedModules, ...sharedComponent, AddProductComponent]
+  ], exports: [...sharedModules, ...sharedComponent]
 })
 export class SharedModule { }
