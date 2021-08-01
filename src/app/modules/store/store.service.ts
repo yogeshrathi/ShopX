@@ -15,4 +15,12 @@ export class StoreService {
     public getProducts(): Observable<any> {
         return this.httpClient.get<any>(`${environment.baseHref}products`);
     }
+
+    public getCart(): Observable<any> {
+        return this.httpClient.get<any>(`${environment.baseHref}cart`);
+    }
+
+    public addProductToCart(payload: any): Observable<any> {
+        return this.httpClient.post<any>(`${environment.baseHref}cart`, payload);
+    }
 }

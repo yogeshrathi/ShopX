@@ -37,8 +37,7 @@ export class LoginComponent implements OnInit {
                 // Show Toastr []
                 // save token [x]
                 // save encrypted Token
-                // console.log('User Loggedin --->', res);
-                this.storageService.sessionToken = res.token;
+                this.storageService.sessionToken = res.accessToken;
                 this.storageService.set('user', JSON.stringify(res));
                 this.router.navigate(['/store']);
             });

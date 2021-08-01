@@ -1,15 +1,17 @@
 <mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title>{{product.product_name}}</mat-card-title>
-    <!-- <mat-card-subtitle>{{product.categoryName}}</mat-card-subtitle> -->
-  </mat-card-header>
-  <img mat-card-image [src]="product.imageUrl" alt="Photo of a {{product.product_name}}">
-  <!-- <mat-card-content>
+    <mat-card-header>
+        <mat-card-title>{{product.product_name}}</mat-card-title>
+        <!-- <mat-card-subtitle>{{product.categoryName}}</mat-card-subtitle> -->
+    </mat-card-header>
+    <img mat-card-image [src]="product.imageUrl" alt="Photo of a {{product.product_name}}">
+    <!-- <mat-card-content>
     <p>
       {{product.description}}
     </p>
   </mat-card-content> -->
-  <mat-card-actions>
-    <button mat-button (click)="addProduct()">Add to Cart</button>
-  </mat-card-actions>
+    <mat-card-actions>
+        <button mat-button *ngIf="product.quantity == 0" (click)="addProduct()">Add to Cart</button>
+        <button mat-button *ngIf="product.quantity > 0" (click)="addProduct()">Go to Cart</button>
+        <button mat-button (click)="addProduct()">Buy Now</button>
+    </mat-card-actions>
 </mat-card>

@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { StorageService } from '../services/storageService';
 
 @Injectable()
-export class HttpErrorInterceptor implements HttpInterceptor {
+export class HttpTokenInterceptor implements HttpInterceptor {
     constructor(
         private storageService: StorageService
     ) { }
@@ -20,6 +20,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         } else if (!token) {
             return req.clone();
         }
-        return req.clone({ setHeaders: { Authorization: token } });
+        return req.clone({ setHeaders: { authorization: token } });
     }
 }
